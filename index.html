@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ============ SEO أساسي ============ -->
+<title>مقالات Appzade | تصميم وتطوير المواقع، UX، SEO وGEO</title>
+<meta name="description" content="مدونة Appzade: مقالات عملية في تصميم وتطوير المواقع، تجربة المستخدم UX/UI، تحسين محركات البحث SEO، تحسين الظهور في محركات الذكاء الاصطناعي GEO، والتسويق الرقمي.">
+<meta name="keywords" content="تصميم مواقع, تطوير مواقع, تجربة المستخدم UX, SEO, GEO, تحسين محركات البحث, الذكاء الاصطناعي, Webflow, ووردبريس, تسويق رقمي, تجارة إلكترونية, Appzade">
+<meta name="author" content="Appzade">
+<link rel="canonical" href="https://appzade.com/blog/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta http-equiv="Content-Language" content="ar">
+<meta name="theme-color" content="#12143A">
+
+<!-- ============ Open Graph (فيسبوك/لينكدإن) ============ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Appzade">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="مقالات Appzade | تصميم وتطوير المواقع، UX، SEO وGEO">
+<meta property="og:description" content="مقالات عملية ومحدثة في تصميم وتطوير المواقع، تجربة المستخدم، السيو الحديث GEO/AEO، والتسويق الرقمي.">
+<meta property="og:url" content="https://appzade.com/blog/">
+
+<!-- ============ Twitter Card ============ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مقالات Appzade | تصميم وتطوير المواقع، UX، SEO وGEO">
+<meta name="twitter:description" content="مقالات عملية ومحدثة في تصميم وتطوير المواقع، تجربة المستخدم، السيو الحديث GEO/AEO، والتسويق الرقمي.">
+
+<!-- ============ توجيه محركات الذكاء الاصطناعي (GEO / Generative Engine Optimization) ============
+     محتوى واضح، عناوين هرمية صحيحة (H1→H3)، فقرات موجزة، وبيانات Schema.org منظمة
+     تسهّل على أنظمة مثل Google AI Overviews وChatGPT وPerplexity فهم واقتباس المحتوى بدقة. -->
+<meta name="generator" content="Appzade Editorial">
+
+<!-- ============ Schema.org: منظمة ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Appzade",
+  "url": "https://appzade.com",
+  "sameAs": [
+    "https://www.instagram.com/appzade/",
+    "https://facebook.com/Appzade",
+    "https://www.linkedin.com/company/appzade/",
+    "https://github.com/App-zade"
+  ]
+}
+</script>
+
+<!-- ============ Schema.org: مسار التصفح ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://appzade.com" },
+    { "@type": "ListItem", "position": 2, "name": "المدونة", "item": "https://appzade.com/blog/" }
+  ]
+}
+</script>
+
+<!-- ============ Schema.org: قائمة المقالات (تساعد الزحف وGEO) ============ -->
+<script type="application/ld+json" id="articles-schema"></script>
+
+<style>
+/* ===================================================
+   Appzade Blog — Redesign (نسخة ملف واحد)
+   لغة التصميم: "استوديو تصميم / Blueprint"
+   الكروت تتصرف كـ Artboards على لوحة تصميم —
+   زوايا متقطعة، وسوم طبقات، وحركة مؤشر.
+=================================================== */
+
+:root{
+  --navy: #12143A;
+  --navy-2: #1A1D52;
+  --bg: #F5F5FC;
+  --card: #FFFFFF;
+  --ink: #1B1D3D;
+  --muted: #6A6D8C;
+  --line: #E5E5F1;
+  --accent: #4F5BD9;
+  --accent-ink: #363FA8;
+  --coral: #FF6B4A;
+  --radius: 18px;
+  --shadow-card: 0 1px 2px rgba(20,20,60,.04), 0 12px 30px -14px rgba(20,20,60,.18);
+  --shadow-card-hover: 0 1px 2px rgba(20,20,60,.05), 0 24px 48px -18px rgba(30,30,90,.28);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:'Tajawal', Arial, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{ font-family:'Cairo', Arial, sans-serif; margin:0; }
+p{ margin:0; }
+a{ text-decoration:none; color:inherit; }
+button{ font-family:inherit; cursor:pointer; }
+img{ max-width:100%; display:block; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+.wrap{ max-width:1200px; margin:0 auto; padding:0 28px; }
+:focus-visible{ outline:2.5px solid var(--coral); outline-offset:3px; border-radius:6px; }
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ================= HEADER ================= */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:rgba(245,245,252,.78);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .25s ease;
+}
+.site-header.scrolled{ box-shadow:0 8px 24px -16px rgba(20,20,60,.25); }
+.header-inner{ display:flex; align-items:center; gap:28px; height:76px; }
+.brand{ display:flex; align-items:center; gap:10px; margin-left:8px; }
+.brand-mark svg{ width:26px; height:26px; display:block; }
+.brand-name{ font-family:'Cairo',sans-serif; font-weight:800; font-size:1.2rem; letter-spacing:.2px; }
+
+.main-nav{ display:flex; align-items:center; gap:6px; flex:1; }
+.main-nav a{ font-size:.95rem; font-weight:500; color:var(--muted); padding:8px 14px; border-radius:10px; transition:.2s; position:relative; }
+.main-nav a:hover{ color:var(--ink); background:#EEEFFA; }
+.main-nav a.active{ color:var(--accent-ink); font-weight:700; }
+.main-nav a.active::after{ content:""; position:absolute; right:14px; left:14px; bottom:2px; height:2px; background:var(--coral); border-radius:2px; }
+
+.cta-btn{
+  display:flex; align-items:center; gap:8px;
+  background:var(--ink); color:#fff; font-weight:700; font-size:.9rem;
+  padding:11px 20px; border-radius:12px; white-space:nowrap;
+  transition:transform .2s ease, background .2s ease;
+}
+.cta-btn svg{ transform:rotate(180deg); }
+.cta-btn:hover{ background:var(--accent); transform:translateY(-1px); }
+
+.burger{ display:none; flex-direction:column; gap:4px; background:none; border:0; padding:8px; }
+.burger span{ width:22px; height:2px; background:var(--ink); border-radius:2px; }
+
+/* mobile nav drawer */
+.mobile-nav{
+  display:none; flex-direction:column; gap:2px;
+  background:var(--card); border-bottom:1px solid var(--line);
+  padding:10px 18px 18px;
+}
+.mobile-nav.is-open{ display:flex; }
+.mobile-nav a{ padding:12px 6px; font-weight:600; color:var(--ink); border-bottom:1px solid var(--line); }
+.mobile-nav a:last-child{ border-bottom:0; }
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  background:radial-gradient(120% 140% at 15% 0%, #22265E 0%, var(--navy) 55%, #0E1030 100%);
+  color:#fff; overflow:hidden; padding:96px 0 88px;
+}
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(80% 80% at 70% 30%, #000 10%, transparent 75%);
+}
+.hero-cursor{ position:absolute; left:-40px; top:20px; opacity:.9; pointer-events:none; }
+.hero-cursor rect{ fill:none; stroke-dasharray:6 6; animation:dash 26s linear infinite; }
+.frame-a{ stroke:#7C86F2; } .frame-b{ stroke:#FF9A80; } .frame-c{ stroke:#5EE6D0; }
+@keyframes dash{ to{ stroke-dashoffset:-500; } }
+.cursor-pointer{ animation:cursorMove 9s ease-in-out infinite; }
+@keyframes cursorMove{
+  0%,100%{ transform:translate(150px,120px); }
+  30%{ transform:translate(370px,190px); }
+  60%{ transform:translate(230px,330px); }
+}
+
+.hero-inner{ position:relative; z-index:2; max-width:760px; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px; font-size:.82rem; font-weight:700; color:#C7CBFF;
+  background:rgba(124,134,242,.14); border:1px solid rgba(124,134,242,.35);
+  padding:7px 14px; border-radius:100px; margin-bottom:22px;
+}
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--coral); box-shadow:0 0 0 4px rgba(255,107,74,.25); }
+.hero h1{ font-size:clamp(2rem, 4.4vw, 3.1rem); font-weight:800; line-height:1.28; letter-spacing:-.5px; margin-bottom:22px; }
+.hero-sub{ font-size:1.06rem; line-height:1.9; color:#C4C6E8; max-width:600px; margin-bottom:34px; }
+.hero-actions{ display:flex; gap:14px; margin-bottom:38px; flex-wrap:wrap; }
+.btn-primary{
+  display:flex; align-items:center; gap:10px; background:var(--coral); color:#fff; font-weight:700;
+  padding:14px 26px; border-radius:12px; box-shadow:0 14px 30px -12px rgba(255,107,74,.55);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn-primary svg{ transform:rotate(180deg); }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 18px 36px -12px rgba(255,107,74,.7); }
+.btn-ghost{
+  display:flex; align-items:center; border:1.5px solid rgba(255,255,255,.28); color:#fff;
+  font-weight:700; padding:14px 26px; border-radius:12px; transition:.2s;
+}
+.btn-ghost:hover{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5); }
+
+.search-bar{
+  display:flex; align-items:center; gap:12px; background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.18); border-radius:14px; padding:15px 18px;
+  max-width:560px; backdrop-filter:blur(6px);
+}
+.search-bar svg{ color:#9EA2D6; flex-shrink:0; }
+.search-bar input{ background:none; border:0; outline:0; color:#fff; font-family:'Tajawal',sans-serif; font-size:.98rem; flex:1; width:100%; }
+.search-bar input::placeholder{ color:#8E92C4; }
+.search-count{ font-size:.8rem; color:#8E92C4; white-space:nowrap; }
+
+/* ================= FILTER BAR ================= */
+.filter-shell{ background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:76px; z-index:60; }
+.filter-row{ display:flex; gap:10px; overflow-x:auto; padding:16px 0; scrollbar-width:thin; }
+.filter-row::-webkit-scrollbar{ height:5px; }
+.filter-row::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+.chip{
+  flex-shrink:0; display:flex; align-items:center; gap:8px; font-size:.88rem; font-weight:700;
+  color:var(--muted); background:#F1F1FA; border:1px solid transparent; padding:9px 17px; border-radius:100px; transition:.2s;
+}
+.chip .dot{ width:8px; height:8px; border-radius:50%; }
+.chip:hover{ background:#E7E8F7; color:var(--ink); }
+.chip.is-active{ background:var(--ink); color:#fff; }
+.chip.is-active .dot{ box-shadow:0 0 0 3px rgba(255,255,255,.25); }
+
+/* ================= ARTICLES ================= */
+.articles-wrap{ padding:52px 28px 30px; }
+.featured{ margin-bottom:44px; }
+.featured-card{
+  display:grid; grid-template-columns:1.05fr 1fr; gap:0; background:var(--navy);
+  border-radius:24px; overflow:hidden; box-shadow:var(--shadow-card); position:relative;
+}
+.featured-visual{
+  position:relative; padding:46px; display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(135deg, rgba(124,134,242,.22), rgba(255,107,74,.14)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 2px, transparent 2px 14px);
+  min-height:280px;
+}
+.featured-visual .art-frame{
+  width:70%; aspect-ratio:4/3; border:1.5px dashed rgba(255,255,255,.4); border-radius:14px;
+  position:relative; display:flex; align-items:center; justify-content:center;
+}
+.corner-tl,.corner-br{ content:""; position:absolute; width:12px; height:12px; border:2px solid #fff; }
+.corner-tl{ top:-6px; right:-6px; border-left:0; border-bottom:0; }
+.corner-br{ bottom:-6px; left:-6px; border-right:0; border-top:0; }
+.featured-visual .glyph{ font-size:3.4rem; }
+.featured-body{ padding:46px 44px; color:#fff; display:flex; flex-direction:column; justify-content:center; position:relative; }
+.featured-tag{
+  display:inline-flex; align-items:center; gap:7px; align-self:flex-start; font-size:.78rem; font-weight:700;
+  color:#0E0F2E; background:#fff; padding:6px 13px; border-radius:100px; margin-bottom:18px;
+}
+.featured-body h2{ font-size:1.7rem; line-height:1.4; margin-bottom:14px; }
+.featured-body p{ color:#B9BBE4; line-height:1.85; margin-bottom:24px; }
+.featured-link{
+  display:inline-flex; align-items:center; gap:8px; font-weight:700; color:#fff; padding-bottom:2px;
+  border-bottom:1.5px solid rgba(255,255,255,.4); width:fit-content; transition:.2s; position:relative; z-index:2;
+}
+.featured-link:hover{ border-color:var(--coral); color:var(--coral); gap:12px; }
+.stretched-link::after{ content:""; position:absolute; inset:0; z-index:1; }
+
+.grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
+.card{
+  background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-card);
+  display:flex; flex-direction:column; transition:transform .28s ease, box-shadow .28s ease; position:relative;
+}
+.card:hover{ transform:translateY(-5px); box-shadow:var(--shadow-card-hover); }
+.card-visual{ position:relative; aspect-ratio:16/10.5; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.card-visual .glyph{ font-size:2.2rem; position:relative; z-index:2; }
+.card-visual .bracket{ position:absolute; width:16px; height:16px; opacity:0; transition:opacity .25s ease, transform .25s ease; border:2px solid rgba(255,255,255,.9); }
+.card:hover .bracket{ opacity:1; }
+.b-tl{ top:10px; right:10px; border-left:0; border-bottom:0; transform:translate(4px,-4px); }
+.b-tr{ top:10px; left:10px; border-right:0; border-bottom:0; transform:translate(-4px,-4px); }
+.b-bl{ bottom:10px; right:10px; border-left:0; border-top:0; transform:translate(4px,4px); }
+.b-br{ bottom:10px; left:10px; border-right:0; border-top:0; transform:translate(-4px,4px); }
+.card:hover .b-tl,.card:hover .b-tr,.card:hover .b-bl,.card:hover .b-br{ transform:translate(0,0); }
+
+.layer-tag{
+  position:absolute; top:12px; right:12px; z-index:3; font-size:.72rem; font-weight:700; color:#fff;
+  padding:5px 11px; border-radius:100px; display:flex; align-items:center; gap:6px;
+  backdrop-filter:blur(4px); background:rgba(15,16,45,.32);
+}
+.layer-tag .dot{ width:6px; height:6px; border-radius:50%; background:#fff; }
+.card-body{ padding:22px 22px 24px; display:flex; flex-direction:column; flex:1; }
+.card-body h3{ font-size:1.08rem; line-height:1.55; margin-bottom:10px; font-weight:700; }
+.card-body h3 a{ position:relative; z-index:2; }
+.card-body p{ color:var(--muted); font-size:.9rem; line-height:1.75; margin-bottom:18px; flex:1; }
+.card-footer{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px dashed var(--line); }
+.read-more{ font-size:.86rem; font-weight:700; color:var(--accent-ink); display:flex; align-items:center; gap:6px; transition:gap .2s ease; position:relative; z-index:2; }
+.card:hover .read-more{ gap:10px; }
+.read-more svg{ transform:rotate(180deg); }
+.card-index{ font-family:'Cairo',sans-serif; font-size:.78rem; color:#B7B9D6; font-weight:700; }
+.empty-state{ text-align:center; padding:60px 20px; color:var(--muted); font-size:1rem; }
+.empty-state button{ background:none; border:0; color:var(--accent-ink); font-weight:700; text-decoration:underline; padding:0; margin-right:4px; }
+.card.is-hidden{ display:none; }
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+/* ================= NEWSLETTER ================= */
+.newsletter{ background:var(--navy-2); color:#fff; padding:56px 0; margin-top:20px; }
+.newsletter-inner{ display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap; }
+.newsletter h3{ font-size:1.4rem; margin-bottom:8px; }
+.newsletter p{ color:#B9BBE4; }
+.news-form{ display:flex; gap:10px; flex-wrap:wrap; }
+.news-form input{
+  font-family:'Tajawal',sans-serif; border:1.5px solid rgba(255,255,255,.25); background:rgba(255,255,255,.06);
+  color:#fff; padding:13px 18px; border-radius:12px; min-width:240px; outline:0;
+}
+.news-form input::placeholder{ color:#9497C8; }
+.news-form button{ background:var(--coral); color:#fff; font-weight:700; border:0; padding:13px 24px; border-radius:12px; transition:.2s; }
+.news-form button:hover{ transform:translateY(-1px); box-shadow:0 12px 26px -10px rgba(255,107,74,.55); }
+
+/* ================= FOOTER ================= */
+.site-footer{ background:var(--navy); color:#B9BBE4; padding:56px 0 0; }
+.footer-inner{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.08); }
+.footer-brand{ display:flex; flex-direction:column; gap:12px; }
+.footer-brand .brand-name{ color:#fff; }
+.footer-brand p{ line-height:1.8; font-size:.92rem; max-width:320px; }
+.footer-nav{ display:flex; flex-direction:column; gap:12px; }
+.footer-nav a:hover{ color:#fff; }
+.footer-social{ display:flex; flex-direction:column; gap:12px; }
+.footer-social a:hover{ color:#fff; }
+.footer-bottom{ padding:22px 28px; font-size:.85rem; color:#7E80AC; text-align:center; }
+
+/* ================= WHATSAPP FLOAT ================= */
+.wa-float{
+  position:fixed; bottom:24px; left:24px; z-index:90; width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.6); transition:transform .2s ease;
+}
+.wa-float:hover{ transform:scale(1.08); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:980px){
+  .main-nav{ display:none; }
+  .featured-card{ grid-template-columns:1fr; }
+  .grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:640px){
+  .burger{ display:flex; }
+  .cta-btn{ display:none; }
+  .hero{ padding:64px 0 56px; }
+  .hero-cursor{ display:none; }
+  .articles-wrap{ padding:40px 18px 20px; }
+  .wrap{ padding:0 18px; }
+  .grid{ grid-template-columns:1fr; }
+  .filter-shell{ top:0; }
+  .newsletter-inner{ flex-direction:column; align-items:flex-start; }
+}
+@media (max-width:420px){
+  .header-inner{ height:66px; }
+  .brand-name{ font-size:1.05rem; }
+  .footer-inner{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="https://appzade.com" class="brand" rel="home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none">
+          <rect x="1.5" y="1.5" width="11" height="11" rx="2.5" fill="#4F5BD9"/>
+          <rect x="15.5" y="1.5" width="11" height="11" rx="2.5" fill="#1C1E3D"/>
+          <rect x="1.5" y="15.5" width="11" height="11" rx="2.5" fill="#1C1E3D"/>
+          <rect x="15.5" y="15.5" width="11" height="11" rx="2.5" fill="#FF6B4A"/>
+        </svg>
+      </span>
+      <span class="brand-name">Appzade</span>
+    </a>
+
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="https://appzade.com">الرئيسية</a>
+      <a href="https://appzade.com/services/">خدماتنا</a>
+      <a href="https://appzade.com/blog/" class="active" aria-current="page">المدونة</a>
+      <a href="https://appzade.com/follow-us/">تابعنا</a>
+      <a href="https://appzade.com/about/">من نحن</a>
+      <a href="https://appzade.com/contact/">اتصل بنا</a>
+    </nav>
+
+    <a class="cta-btn" href="https://wa.me/201031302233" target="_blank" rel="noopener">
+      احجز استشارة مجانية
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="التنقل للجوال">
+    <a href="https://appzade.com">الرئيسية</a>
+    <a href="https://appzade.com/services/">خدماتنا</a>
+    <a href="https://appzade.com/blog/" aria-current="page">المدونة</a>
+    <a href="https://appzade.com/follow-us/">تابعنا</a>
+    <a href="https://appzade.com/about/">من نحن</a>
+    <a href="https://appzade.com/contact/">اتصل بنا</a>
+    <a href="https://wa.me/201031302233" target="_blank" rel="noopener">احجز استشارة مجانية</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="heroHeading">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <svg class="hero-cursor" width="620" height="480" viewBox="0 0 620 480" aria-hidden="true">
+    <rect x="70" y="60" width="220" height="150" rx="10" class="frame-a"/>
+    <rect x="330" y="140" width="200" height="130" rx="10" class="frame-b"/>
+    <rect x="150" y="250" width="230" height="150" rx="10" class="frame-c"/>
+    <g class="cursor-pointer">
+      <path d="M0 0 L0 16 L4.2 12.3 L6.7 18.3 L9.3 17.2 L6.8 11.2 L11.5 10.8 Z" fill="#fff"/>
+    </g>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <span class="eyebrow">دفتر أفكار Appzade</span>
+    <h1 id="heroHeading">مقالات تُبنى مثل تصاميمنا<br>بنيّة، ومدروسة، وبلا حشو</h1>
+    <p class="hero-sub">
+      في Appzade، كل مقال هو لوح تصميم (Artboard) نملأه بخبرة عملية في تجربة المستخدم،
+      تطوير المواقع، السيو التقليدي (SEO) وتحسين الظهور في محركات الذكاء الاصطناعي (GEO) —
+      لنساعدك تبني موقعًا يستحق ثقة عملائك ويظهر أمامهم أينما بحثوا.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn-primary" href="tel:+201063221722">
+        احجز استشارة
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 005 5L16 12l5 2v4a2 2 0 01-2 2C10.6 20 4 13.4 4 5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn-ghost" href="https://wa.me/201031302233" target="_blank" rel="noopener">تواصل معنا</a>
+    </div>
+
+    <div class="search-bar" role="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <label for="searchInput" class="visually-hidden">ابحث في مقالات المدونة</label>
+      <input type="text" id="searchInput" placeholder="ابحث عن مقال… مثال: Webflow، SEO، GEO، تجربة المستخدم">
+      <span class="search-count" id="searchCount" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<div class="filter-shell">
+  <div class="wrap">
+    <div class="filter-row" id="filterRow" role="tablist" aria-label="تصنيفات المقالات"></div>
+  </div>
+</div>
+
+<!-- ============ ARTICLES ============ -->
+<main class="wrap articles-wrap">
+  <h2 class="visually-hidden">أحدث مقالات المدونة</h2>
+  <section class="featured" id="featuredSlot" aria-label="المقال المميز"></section>
+  <section class="grid" id="articlesGrid" aria-label="كل المقالات"></section>
+  <p class="empty-state" id="emptyState" hidden>
+    لا توجد مقالات مطابقة لبحثك — جرّب كلمة أخرى أو
+    <button id="resetFilters" type="button">امسح عوامل التصفية</button>
+  </p>
+</main>
+
+<!-- ============ NEWSLETTER STRIP ============ -->
+<section class="newsletter" aria-labelledby="newsletterHeading">
+  <div class="wrap newsletter-inner">
+    <div>
+      <h3 id="newsletterHeading">مقال جديد كل أسبوع، مباشرة إلى بريدك</h3>
+      <p>أفكار عملية في التصميم والتطوير والسيو وGEO، بدون رسائل مزعجة.</p>
+    </div>
+    <form class="news-form" onsubmit="return false;">
+      <label for="newsletterEmail" class="visually-hidden">بريدك الإلكتروني</label>
+      <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" required autocomplete="email">
+      <button type="submit">اشترك الآن</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none">
+          <rect x="1.5" y="1.5" width="11" height="11" rx="2.5" fill="#4F5BD9"/>
+          <rect x="15.5" y="1.5" width="11" height="11" rx="2.5" fill="#EDEEF7"/>
+          <rect x="1.5" y="15.5" width="11" height="11" rx="2.5" fill="#EDEEF7"/>
+          <rect x="15.5" y="15.5" width="11" height="11" rx="2.5" fill="#FF6B4A"/>
+        </svg>
+      </span>
+      <span class="brand-name">Appzade</span>
+      <p>شركة رائدة في تطوير البرمجيات والتصميم الرقمي، نعمل على تقديم حلول مبتكرة تدعم نجاح أعمالك.</p>
+    </div>
+    <nav class="footer-nav" aria-label="روابط الفوتر">
+      <a href="https://appzade.com">الرئيسية</a>
+      <a href="https://appzade.com/services/">خدماتنا</a>
+      <a href="https://appzade.com/blog/">المدونة</a>
+      <a href="https://appzade.com/follow-us/">تابعنا</a>
+      <a href="https://appzade.com/about/">من نحن</a>
+      <a href="https://appzade.com/contact/">اتصل بنا</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/appzade/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/Appzade" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/appzade/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/App-zade" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">جميع الحقوق محفوظة © 2025 Appzade</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/201031302233" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.28-1.38a9.9 9.9 0 004.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.22 8.22 0 01-1.26-4.38c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.42 5.84c0 4.55-3.71 8.24-8.26 8.24zm4.52-6.19c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.86-.87 2.09 0 1.23.9 2.42 1.02 2.59.12.17 1.76 2.69 4.27 3.77.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+</a>
+
+<script>
+/* ==========================================================
+   Appzade Blog — بيانات ومنطق العرض (ملف واحد)
+   المحتوى مطابق للمدونة الفعلية (appzade.com/blog) — العناوين
+   والمقتطفات والروابط حقيقية؛ التصنيفات أُضيفت تحريريًا لتشغيل
+   الفلترة والبحث، وبيانات Schema.org للمقالات تُبنى من نفس القائمة.
+========================================================== */
+
+const CATEGORIES = {
+  all:        { label: "الكل",              color: "#1B1D3D" },
+  dev:        { label: "تطوير مواقع",       color: "#4F5BD9" },
+  ux:         { label: "تجربة المستخدم",    color: "#9B5DE5" },
+  seo:        { label: "SEO وGEO",          color: "#00A896" },
+  marketing:  { label: "التسويق",           color: "#FF6B4A" },
+  sales:      { label: "تحويل ومبيعات",     color: "#F2A93B" },
+  ecom:       { label: "تجارة إلكترونية",   color: "#2EC4B6" },
+  security:   { label: "أمان وحماية",       color: "#E4572E" },
+};
+
+const GLYPHS = {
+  dev: "🧩", ux: "🎨", seo: "📈", marketing: "📣",
+  sales: "💬", ecom: "🛒", security: "🔒"
+};
+
+const ARTICLES = [
+  { title:"ما هو Webflow؟ دليل شامل للمبتدئين في 2026", excerpt:"تعرف على Webflow ومميزاته وأسعاره ومقارنته مع WordPress وهل يستحق التعلم للشركات والمبتدئين والمحترفين.", url:"https://appzade.com/%d9%85%d8%a7-%d9%87%d9%88-webflow/", cat:"dev", featured:true },
+  { title:"أتمتة التسويق والعملاء (Marketing Automation)", excerpt:"أتمتة التسويق هي منظومة متكاملة تجمع بين البرمجيات والذكاء الاصطناعي لتنفيذ المهام التسويقية تلقائيًا.", url:"https://appzade.com/marketing-automation/", cat:"marketing" },
+  { title:"تحسين رحلة العميل قبل بوابة الدفع", excerpt:"هيئ الزائر نفسيًا قبل الدفع لزيادة إكمال الشراء وتقليل التردد.", url:"https://appzade.com/click-through-page/", cat:"sales" },
+  { title:"صفحة ما قبل الإطلاق: استراتيجية بناء الترقب لمنتجك الجديد", excerpt:"ابنِ قائمة انتظار متحمسة ومنتظرة لإطلاق منتجك الجديد بقوة.", url:"https://appzade.com/pre-launch-page/", cat:"marketing" },
+  { title:"كيف تحول الزوار لعملاء عبر المكالمات المجدولة", excerpt:"حوّل الزوار لمكالمات استشارية مجدولة تُغلق صفقات خدماتك عالية القيمة.", url:"https://appzade.com/consultation-booking-page/", cat:"sales" },
+  { title:"كيف تقدم محتوى مجاني مقابل بيانات العملاء", excerpt:"قدّم كتبًا وملفات مجانية قوية مقابل إيميل عملاء محتملين جادين.", url:"https://appzade.com/e-book-download-page/", cat:"marketing" },
+  { title:"صفحة الخدمة الواحدة: طريقة عرض خدمتك باحترافية للعملاء", excerpt:"اعرض خدمتك باحترافية، واشرح قيمتها للعملاء السعوديين المستعدين للشراء.", url:"https://appzade.com/single-service-page/", cat:"sales" },
+  { title:"صفحة المبيعات الفعالة: دليلك لتحويل الزوار إلى مشترين فعليين", excerpt:"حوّل الزيارات إلى مبيعات حقيقية بنصوص إقناعية وعرض قوي مدروس.", url:"https://appzade.com/sales-page/", cat:"sales" },
+  { title:"كيف تبني قائمة بريدية احترافية لعملك في السعودية", excerpt:"ابنِ قائمة بريدية مستهدفة بزوار مهتمين يزيدون مبيعاتك المستمرة.", url:"https://appzade.com/lead-generation/", cat:"marketing" },
+  { title:"دليل تحسين محركات البحث الشامل لمتاجر WooCommerce", excerpt:"في عصر التجارة الإلكترونية المتسارع، لم تعد مجرد بناء متجر إلكتروني كافيًا للنجاح.", url:"https://appzade.com/%d8%aa%d8%ad%d8%b3%d9%8a%d9%86-%d9%85%d8%ad%d8%b1%d9%83%d8%a7%d8%aa-%d8%a7%d9%84%d8%a8%d8%ad%d8%ab-%d9%84%d9%85%d8%aa%d8%a7%d8%ac%d8%b1-woocommerce/", cat:"seo" },
+  { title:"البحث الآمن: دليلك الشامل لحماية أفضل على الإنترنت", excerpt:"تعرف على البحث الآمن وكيفية تفعيله وقفله لحماية أطفالك من المحتوى غير اللائق.", url:"https://appzade.com/%d8%a7%d9%84%d8%a8%d8%ad%d8%ab-%d8%a7%d9%84%d8%a2%d9%85%d9%86-%d8%af%d9%84%d9%8a%d9%84-%d8%b4%d8%a7%d9%85%d9%84-%d9%84%d9%84%d8%ad%d9%85%d8%a7%d9%8a%d8%a9/", cat:"security" },
+  { title:"دليل تصميم المواقع الصحية في السعودية وفق معايير وزارة الصحة", excerpt:"اكتشف كيف تصمم موقعًا صحيًا متوافقًا مع معايير وزارة الصحة السعودية ورؤية 2030.", url:"https://appzade.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82%d8%b9-%d8%a7%d9%84%d8%b5%d8%ad%d9%8a%d8%a9-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/", cat:"dev" },
+  { title:"دليل إنشاء منصة تعليم إلكتروني ناجحة في السعودية", excerpt:"اكتشف أسرار بناء منصة تعليم إلكتروني ناجحة في السعودية بتجربة مستخدم ذكية.", url:"https://appzade.com/%d8%a5%d9%86%d8%b4%d8%a7%d8%a1-%d9%85%d9%86%d8%b5%d8%a9-%d8%aa%d8%b9%d9%84%d9%8a%d9%85-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/", cat:"dev" },
+  { title:"كيف تجعل موقعك متوافقًا مع نتائج AI Overview الجديدة في جوجل؟", excerpt:"تعرف على كيفية تحسين موقعك للظهور في نتائج AI Overview من جوجل باستخدام مبادئ GEO الحديثة.", url:"https://appzade.com/%d8%aa%d9%88%d8%a7%d9%81%d9%82-%d8%a7%d9%84%d9%85%d9%88%d9%82%d8%b9-%d9%85%d8%b9-ai-overview/", cat:"seo" },
+  { title:"تحديثات جوجل 2025: الفرق بين SEO وGEO", excerpt:"تعرف على أهم تحديثات جوجل 2025 وتأثيرها على السيو، والفرق بين تحسين محركات البحث التقليدي وGEO.", url:"https://appzade.com/%d8%aa%d8%ad%d8%af%d9%8a%d8%ab%d8%a7%d8%aa-%d8%ac%d9%88%d8%ac%d9%84-2025/", cat:"seo" },
+  { title:"دليل شامل في UX Writing: ما هو ولماذا هو مهم في 2025؟", excerpt:"تعرف على فن كتابة تجربة المستخدم UX Writing، وكيف تساعد النصوص الذكية في تحسين التفاعل.", url:"https://appzade.com/%d9%83%d8%aa%d8%a7%d8%a8%d8%a9-%d8%aa%d8%ac%d8%b1%d8%a8%d8%a9-%d8%a7%d9%84%d9%85%d8%b3%d8%aa%d8%ae%d8%af%d9%85-ux-writing/", cat:"ux" },
+  { title:"الانتقال من SEO إلى GEO: دليلك الشامل للظهور ضمن محركات الجيل الجديد", excerpt:"تعرف على مفهوم GEO (تحسين الظهور في محركات الذكاء التوليدي) وكيف يغيّر طريقة ظهور المحتوى في Google AI وChatGPT.", url:"https://appzade.com/geo-%d8%aa%d8%ad%d8%b3%d9%8a%d9%86-%d8%a7%d9%84%d8%b0%d9%83%d8%a7%d8%a1-%d8%a7%d9%84%d8%a7%d8%b5%d8%b7%d9%86%d8%a7%d8%b9%d9%8a/", cat:"seo" },
+  { title:"السيو التقني الحديث لعام 2025", excerpt:"اكتشف أحدث تقنيات السيو التقني لعام 2025 مع الذكاء الاصطناعي وCore Web Vitals والبيانات المنظمة.", url:"https://appzade.com/%d8%a7%d9%84%d8%b3%d9%8a%d9%88-%d8%a7%d9%84%d8%aa%d9%82%d9%86%d9%8a-2025/", cat:"seo" },
+  { title:"أهمية وجود مصمم UI/UX قبل بدء البرمجة في أي مشروع رقمي", excerpt:"وجود مصمم UI/UX متخصص يغيّر مسار أي موقع أو تطبيق من مجرد منتج يعمل إلى تجربة مفهومة ومحبوبة ومربحة.", url:"https://appzade.com/%d8%a7%d9%87%d9%85%d9%8a%d8%a9-%d9%85%d8%b5%d9%85%d9%85-ui-ux-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d8%b4%d8%a7%d8%b1%d9%8a%d8%b9/", cat:"ux" },
+  { title:"أفضل منصات التجارة الإلكترونية في السعودية 2025", excerpt:"تشهد المملكة طفرة هائلة في التجارة الإلكترونية، مدعومة برؤية 2030 لتعزيز الاقتصاد الرقمي.", url:"https://appzade.com/%d9%85%d9%86%d8%b5%d8%a7%d8%aa-%d8%a7%d9%84%d8%aa%d8%ac%d8%a7%d8%b1%d8%a9-%d8%a7%d9%84%d8%a5%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d8%a9-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a%d8%a9/", cat:"ecom" },
+  { title:"الذكاء الاصطناعي في تطوير المواقع 2025", excerpt:"شهد عام 2025 ثورة حقيقية في تطوير المواقع، حيث أصبح الذكاء الاصطناعي جزءًا لا يتجزأ من التطوير اليومي.", url:"https://appzade.com/%d8%a7%d9%84%d8%b0%d9%83%d8%a7%d8%a1-%d8%a7%d9%84%d8%a7%d8%b5%d8%b7%d9%86%d8%a7%d8%b9%d9%8a-%d8%aa%d8%b7%d9%88%d9%8a%d8%b1-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82%d8%b9/", cat:"dev" },
+  { title:"مستقبل الإبداع البصري: تقنيات Figma وMotion Design", excerpt:"اكتشف كيف غيّرت أدوات مثل Figma وMotion Design مفاهيم التصميم الرقمي وخلقت تجارب بصرية تفاعلية.", url:"https://appzade.com/%d9%85%d8%b3%d8%aa%d9%82%d8%a8%d9%84-%d8%a7%d9%84%d8%a5%d8%a8%d8%af%d8%a7%d8%b9-%d8%a7%d9%84%d8%a8%d8%b5%d8%b1%d9%8a/", cat:"ux" },
+  { title:"أهمية الذكاء الاصطناعي في تصميم المواقع وتهيئة المحتوى لمحركات البحث", excerpt:"الذكاء الاصطناعي صار جزءًا أساسيًا من كيفية اكتشاف المستخدمين للمحتوى واتخاذهم للقرارات، وامتداد هذا لمحركات GEO.", url:"https://appzade.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82%d8%b9-%d8%a8%d8%a7%d9%84%d8%b0%d9%83%d8%a7%d8%a1-%d8%a7%d9%84%d8%a1%d8%b5%d8%b7%d9%86%d8%a7%d8%b9%d9%8a-ai/", cat:"seo" },
+  { title:"تصميم مواقع وتطبيقات باستخدام Figma", excerpt:"تصميم المواقع وتصميم التطبيقات أمران لا ينفصلان في عصرنا الرقمي، وكل منهما يخدم أهدافًا مختلفة.", url:"https://appzade.com/%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d9%85%d9%88%d8%a7%d9%82%d8%b9-%d9%88%d8%aa%d8%b7%d8%a8%d9%8a%d9%82%d8%a7%d8%aa-%d8%a8%d8%a7%d8%b3%d8%aa%d8%ae%d8%af%d8%a7%d9%85-figma/", cat:"ux" },
+  { title:"ما هو الفرق بين تصميم المواقع وتطوير المواقع؟", excerpt:"يختلط على الكثيرين الفهم الصحيح للفرق بين تصميم المواقع وتطوير المواقع، وهما مجالان يكملان بعضهما.", url:"https://appzade.com/%d8%a7%d9%84%d9%81%d8%b1%d9%82-%d8%a8%d9%8a%d9%86-%d8%aa%d8%b5%d9%85%d9%8a%d9%85-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82%d8%b9-%d9%88%d8%aa%d8%b7%d9%88%d9%8a%d8%b1-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82/", cat:"dev" },
+  { title:"أهمية وجود مختص في SEO لإدارة وتحسين الموقع", excerpt:"يعتبر متخصص السيو من العناصر الأساسية في نجاح المواقع، ويلعب دورًا محوريًا في رفع معدل التحويل.", url:"https://appzade.com/%d8%a3%d9%87%d9%85%d9%8a%d8%a9-%d9%88%d8%ac%d9%88%d8%af-%d9%85%d8%ae%d8%aa%d8%b5-%d9%81%d9%8a-seo/", cat:"seo" },
+  { title:"أفضل طرق تحسين سرعة وأداء المواقع في 2025", excerpt:"تعرف على أفضل طرق تحسين سرعة وأداء المواقع وتأثيرها على تجربة المستخدم والسيو، مع أدوات مجانية.", url:"https://appzade.com/%d8%a3%d9%81%d8%b6%d9%84-%d8%b7%d8%b1%d9%82-%d8%aa%d8%ad%d8%b3%d9%8a%d9%86-%d8%b3%d8%b1%d8%b9%d8%a9-%d9%88%d8%a3%d8%af%d8%a7%d8%a1-%d8%a7%d9%84%d9%85%d9%88%d8%a7%d9%82%d8%b9-%d9%81%d9%8a-2025/", cat:"dev" },
+  { title:"خطوات بناء متجر إلكتروني احترافي من الصفر في 2025", excerpt:"خطوات عملية لإنشاء متجر إلكتروني سريع وآمن باستخدام ووردبريس، ووكوميرس، وبريكس بيلدر.", url:"https://appzade.com/%d8%ae%d8%b7%d9%88%d8%a7%d8%aa-%d8%a8%d9%86%d8%a7%d8%a1-%d9%85%d8%aa%d8%ac%d8%b1-%d8%a5%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a-%d8%a7%d8%ad%d8%aa%d8%b1%d8%a7%d9%81%d9%8a/", cat:"ecom" },
+  { title:"كل ما تريد معرفته عن تجربة المستخدم (UX)", excerpt:"اكتشف كيف تؤثر تجربة المستخدم على نجاح موقعك وزيادة تفاعل الزوار، مع نصائح عملية لتحسين الأداء.", url:"https://appzade.com/%d9%83%d9%84-%d9%85%d8%a7-%d8%aa%d8%ad%d8%aa%d8%a7%d8%ac-%d9%85%d8%b9%d8%b1%d9%81%d8%aa%d9%87-%d8%b9%d9%86-%d8%aa%d8%ac%d8%b1%d8%a8%d8%a9-%d8%a7%d9%84%d9%85%d8%b3%d8%aa%d8%ae%d8%af%d9%85/", cat:"ux" },
+  { title:"أفضل طرق برمجة موقع إلكتروني في 2025", excerpt:"تعرف على أحدث أساليب برمجة المواقع في 2025، من البرمجة الخاصة إلى أنظمة إدارة المحتوى.", url:"https://appzade.com/%d8%a3%d9%81%d8%b6%d9%84-%d8%b7%d8%b1%d9%82-%d8%a8%d8%b1%d9%85%d8%ac%d8%a9-%d9%85%d9%88%d9%82%d8%b9-%d8%a5%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a-%d9%81%d9%8a-2025/", cat:"dev" },
+];
+
+function catColor(cat){ return CATEGORIES[cat]?.color || "#4F5BD9"; }
+function visualGradient(cat){
+  const c = catColor(cat);
+  return `linear-gradient(135deg, ${c}E6, ${c}99), repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 2px, transparent 2px 12px)`;
+}
+
+function renderFilters(){
+  const row = document.getElementById('filterRow');
+  row.innerHTML = Object.entries(CATEGORIES).map(([key, {label, color}]) => `
+    <button class="chip ${key==='all' ? 'is-active' : ''}" data-cat="${key}" type="button" role="tab" aria-selected="${key==='all'}">
+      <span class="dot" style="background:${key==='all' ? '#fff' : color}"></span>
+      ${label}
+    </button>
+  `).join('');
+
+  row.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chip');
+    if(!btn) return;
+    row.querySelectorAll('.chip').forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-selected','false'); });
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-selected','true');
+    state.cat = btn.dataset.cat;
+    applyFilters();
+  });
+}
+
+function renderFeatured(){
+  const item = ARTICLES.find(a => a.featured) || ARTICLES[0];
+  const slot = document.getElementById('featuredSlot');
+  slot.innerHTML = `
+    <article class="featured-card reveal">
+      <div class="featured-visual" style="background:${visualGradient(item.cat)}">
+        <div class="art-frame">
+          <span class="glyph">${GLYPHS[item.cat]}</span>
+          <span class="corner-tl"></span><span class="corner-br"></span>
+        </div>
+      </div>
+      <div class="featured-body">
+        <span class="featured-tag">
+          <span class="dot" style="width:7px;height:7px;border-radius:50%;background:${catColor(item.cat)};display:inline-block"></span>
+          مقال مميز &middot; ${CATEGORIES[item.cat].label}
+        </span>
+        <h2><a href="${item.url}" target="_blank" rel="noopener" class="stretched-link">${item.title}</a></h2>
+        <p>${item.excerpt}</p>
+        <span class="featured-link" aria-hidden="true">
+          اقرأ المقال كاملاً
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </article>
+  `;
+}
+
+function cardHTML(item, idx){
+  return `
+    <article class="card reveal" data-cat="${item.cat}" data-title="${item.title.toLowerCase()}">
+      <div class="card-visual" style="background:${visualGradient(item.cat)}">
+        <span class="layer-tag"><span class="dot"></span>${CATEGORIES[item.cat].label}</span>
+        <span class="glyph">${GLYPHS[item.cat]}</span>
+        <span class="bracket b-tl"></span><span class="bracket b-tr"></span>
+        <span class="bracket b-bl"></span><span class="bracket b-br"></span>
+      </div>
+      <div class="card-body">
+        <h3><a href="${item.url}" target="_blank" rel="noopener" class="stretched-link">${item.title}</a></h3>
+        <p>${item.excerpt}</p>
+        <div class="card-footer">
+          <span class="read-more" aria-hidden="true">
+            اقرأ المزيد
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="card-index">#${String(idx+1).padStart(2,'0')}</span>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderGrid(){
+  const grid = document.getElementById('articlesGrid');
+  const rest = ARTICLES.filter(a => !a.featured);
+  grid.innerHTML = rest.map((item, idx) => cardHTML(item, idx)).join('');
+  observeReveals();
+}
+
+/* بيانات Schema.org لقائمة المقالات — تولَّد من نفس مصدر المحتوى لتفادي أي تكرار أو تعارض */
+function renderArticleSchema(){
+  const itemListElement = ARTICLES.map((item, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "url": item.url,
+    "name": item.title
+  }));
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "مدونة Appzade",
+    "url": "https://appzade.com/blog/",
+    "inLanguage": "ar",
+    "publisher": { "@type": "Organization", "name": "Appzade", "url": "https://appzade.com" },
+    "mainEntity": { "@type": "ItemList", "itemListElement": itemListElement }
+  };
+  document.getElementById('articles-schema').textContent = JSON.stringify(schema);
+}
+
+const state = { cat: 'all', query: '' };
+
+function applyFilters(){
+  const cards = document.querySelectorAll('#articlesGrid .card');
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesCat = state.cat === 'all' || card.dataset.cat === state.cat;
+    const matchesQuery = !state.query || card.dataset.title.includes(state.query);
+    const show = matchesCat && matchesQuery;
+    card.classList.toggle('is-hidden', !show);
+    if(show) visible++;
+  });
+  document.getElementById('emptyState').hidden = visible > 0;
+  const countEl = document.getElementById('searchCount');
+  countEl.textContent = state.query ? `${visible} نتيجة` : '';
+}
+
+function initSearch(){
+  const input = document.getElementById('searchInput');
+  input.addEventListener('input', () => {
+    state.query = input.value.trim().toLowerCase();
+    applyFilters();
+  });
+  document.getElementById('resetFilters').addEventListener('click', () => {
+    state.cat = 'all'; state.query = '';
+    input.value = '';
+    document.querySelectorAll('.chip').forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-selected','false'); });
+    const allChip = document.querySelector('.chip[data-cat="all"]');
+    allChip.classList.add('is-active'); allChip.setAttribute('aria-selected','true');
+    applyFilters();
+  });
+}
+
+function initHeader(){
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive:true });
+
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+  });
+}
+
+function observeReveals(){
+  const els = document.querySelectorAll('.reveal:not(.is-visible)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderFilters();
+  renderFeatured();
+  renderGrid();
+  renderArticleSchema();
+  initSearch();
+  initHeader();
+  observeReveals();
+});
+</script>
+</body>
+</html>
